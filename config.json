@@ -1,0 +1,76 @@
+{
+  "leet_map": {
+    "a": "4", "e": "3", "g": "6", "i": "1", "o": "0", "s": "5", "t": "7",
+    "A": "4", "E": "3", "G": "6", "I": "1", "O": "0", "S": "5", "T": "7"
+  },
+  
+  "patterns": [
+    "{adjective}{noun}{number}",
+    "{noun}{number}",
+    "{adjective}_{noun}",
+    "{noun}_{adjective}_{number}",
+    "The{noun}",
+    "Iam{noun}"
+  ],
+
+  "separators": ["_", ".", "-", "x", "X"],
+
+  "prefixes": ["Cyber", "Master", "The", "Alpha", "Dark", "Ghost", "Super", "Ultra", "Mega"],
+  
+  "suffixes": ["Ninja", "Pro", "X", "Tech", "Hunter", "Lord", "Bot", "AI", "99", "007"],
+  
+  "retro_words": {
+    "adjectives": ["Cyber", "Mega", "Extreme", "Digital", "Pixel", "Turbo", "Retro", "Vintage", "8-bit", "16-bit", "Arcade", "Atomic", "Sonic", "Ultimate"],
+    "nouns": ["Warrior", "Knight", "Lord", "Master", "Dude", "Gamer", "Overlord", "Legend", "Nexus", "Titan"]
+  },
+  
+  "mythology": {
+    "greek": ["Zeus", "Hera", "Apollo", "Ares", "Athena", "Hades"],
+    "norse": ["Odin", "Thor", "Loki", "Freya", "Heimdall", "Tyr"],
+    "egyptian": ["Ra", "Anubis", "Osiris", "Isis", "Horus", "Set"]
+  },
+
+  "vibes": {
+    "mystical": {
+      "adjectives": ["Shadow", "Runic", "Astral", "Spirit", "Moon", "Sun", "Magic", "Arcane", "Void"],
+      "nouns": ["Walker", "Seer", "Oracle", "Mage", "Sorcerer", "Whisper", "Wizard", "Witch", "Specter"]
+    },
+    "tech": {
+      "adjectives": ["Data", "Cypher", "Kernel", "Logic", "Pixel", "Voltage", "Code", "Binary", "Quantum"],
+      "nouns": ["Runner", "Surfer", "Byte", "Flow", "Mind", "Jockey", "Hacker", "Coder", "Bot"]
+    },
+    "warrior": {
+      "adjectives": ["Axe", "Shield", "Iron", "Storm", "Blood", "Fury", "Steel", "Battle", "War"],
+      "nouns": ["Blade", "Heart", "Breaker", "Guard", "Fist", "Slayer", "Knight", "Paladin", "Viking"]
+    },
+    "fantasy": {
+      "adjectives": ["Dragon", "Elven", "Dark", "Holy", "Ancient", "Elf", "Dwarven", "Orcish"],
+      "nouns": ["Slayer", "Rider", "Mage", "Blade", "Shield", "Wizard", "King", "Queen"]
+    },
+    "scifi": {
+      "adjectives": ["Void", "Quantum", "Neon", "Cyber", "Stellar", "Space", "Alien", "Galactic"],
+      "nouns": ["Pilot", "Drifter", "Punk", "Droid", "Core", "Robot", "Marine", "Invader"]
+    },
+    "nature": {
+      "adjectives": ["Wild", "Green", "Storm", "River", "Deep", "Forest", "Mountain", "Ocean"],
+      "nouns": ["Wolf", "Bear", "Root", "Peak", "Leaf", "Tree", "Eagle", "Shark"]
+    }
+  },
+  
+  "professions": {
+    "developer": {
+      "adjectives": ["Agile", "Async", "Bug", "Code", "Dev", "Git", "FullStack"],
+      "nouns": ["Slinger", "Wizard", "Warrior", "Junkie", "Guru", "Ninja", "Engineer"]
+    },
+    "designer": {
+      "adjectives": ["Creative", "Pixel", "Vector", "Font", "UI", "UX", "Artistic"],
+      "nouns": ["Pusher", "Artist", "Maven", "Pro", "Guru", "Sensei", "Creator"]
+    },
+    "writer": {
+      "adjectives": ["Prose", "Story", "Word", "Ink", "Scroll", "Tome", "Plot"],
+      "nouns": ["Smith", "Weaver", "Crafter", "Bard", "Scribe", "Poet", "Author"]
+    }
+  },
+  
+  "special_chars": "!@#$%^&*"
+}
