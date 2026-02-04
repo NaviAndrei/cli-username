@@ -55,13 +55,13 @@ username_generator/
 ##  Installation & Setup
 
 ### Prerequisites
-- Python 3.9 or higher
+- Python 3.10 or higher
 
 ### Step-by-Step Setup
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/username_generator.git
-   cd username_generator
+   git clone https://github.com/NaviAndrei/cli-username.git
+   cd cli-username
    ```
 
 2. **Create and activate a virtual environment**:

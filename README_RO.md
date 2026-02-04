@@ -52,13 +52,13 @@ username_generator/
 ##  Instalare și Configurare
 
 ### Cerințe
-- Python 3.9+
+- Python 3.10+
 
 ### Pași pentru Setup
 1. **Clonează repository-ul**:
    ```bash
-   git clone https://github.com/utilizator/username_generator.git
-   cd username_generator
+   git clone https://github.com/NaviAndrei/cli-username.git
+   cd cli-username
    ```
 
 2. **Creează și activează un mediu virtual (venv)**:
