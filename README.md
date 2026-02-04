@@ -1,6 +1,6 @@
 # Advanced Username Generator
 
-[![Python Version](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![Python Version](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A powerful, modularized Python CLI tool designed to generate unique and memorable online identities. Built with SOLID principles and a focus on clean code, this generator offers multiple strategies and dynamic modifiers to suit any digital platform.
