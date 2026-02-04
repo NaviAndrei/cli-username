@@ -27,6 +27,10 @@ Un instrument Command Line Interface (CLI) puternic și modularizat, scris în P
     - `Profession`: Username-uri adaptate pentru *Developer*, *Designer*, *Writer*.
     - `Mythology`: Nume inspirate din panteonul Grecesc, Nordi sau Egiptean.
     - `Keywords`: Combină propriile tale cuvinte cheie.
+- **Verificarea Disponibilității (OSINT)**: 
+    - **Verificare Live**: Verifică instantaneu dacă numele este liber pe platforme precum *GitHub*, *Reddit*, *Instagram*, *Twitch*.
+    - **Smart Content Detection**: Scanează textul paginii pentru a identifica profilele „Not Found”, chiar dacă codul HTTP este 200.
+    - **Cross-Platform Sync**: Folosește `--sync` pentru a găsi handle-uri libere pe *toate* platformele alese simultan.
 - **Modificatori Dinamici**:
     - **Leet Speak**: Transformă caracterele în cifre (ex: `e` -> `3`).
     - **Prefix/Suffix**: Adaugă elemente precum `The`, `Master`, `Pro`.
@@ -41,8 +45,9 @@ username_generator/
 ├── username.py             # Entry point (wrapper)
 ├── config.json             # Configurație externă (cuvinte, hărți leet)
 └── username_generator/     # Pachetul principal
-    ├── cli.py              # Interfața CLI și parsarea argumentelor
+    ├── cli.py              # Interfața CLI, Orchestrare și parsarea argumentelor
     ├── core.py             # Logica centrală de generare (Factory)
+    ├── checker.py          # Verificator de disponibilitate paralel (Multi-threaded)
     ├── config.py           # Gestionarea încărcării și caching-ului config
     ├── modifiers.py        # Algoritmi de transformare a textului
     ├── exceptions.py       # Excepții custom (ConfigError, ValidationError)
@@ -90,6 +95,14 @@ python username.py --count 3 --base-word Hero
 *   **Combinare Keywords și caractere speciale**:
     ```powershell
     python username.py --keywords Matrix Ghost --use-special-chars
+    ```
+*   **Verificarea Disponibilității (Mod OSINT)**:
+    ```powershell
+    python username.py --count 1 --retro --check
+    ```
+*   **Sincronizare Multi-Platformă (Găsește un nume liber pe GitHub ȘI Reddit)**:
+    ```powershell
+    python username.py --count 1 --base-word Maverick --sync github,reddit
     ```
 
 ### Export Date
