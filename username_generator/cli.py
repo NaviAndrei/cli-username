@@ -14,6 +14,7 @@ from .modifiers import (
     strip_numbers, 
     enforce_length
 )
+from .checker import check_username_availability
 from .exceptions import UsernameGeneratorError
 
 def setup_parser() -> argparse.ArgumentParser:
@@ -23,7 +24,7 @@ def setup_parser() -> argparse.ArgumentParser:
         argparse.ArgumentParser: The configured argument parser.
     """
     parser = argparse.ArgumentParser(
-        description="🚀 Advanced Username Generator - Create unique online identities.",
+        description="Advanced Username Generator - Create unique online identities.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
         epilog="Example: python username.py --count 5 --vibe tech --use-leet"
     )
@@ -69,6 +70,11 @@ def setup_parser() -> argparse.ArgumentParser:
     export_group = parser.add_argument_group("Data Export")
     export_group.add_argument("--output", metavar="FILE", help="Path to the output file.")
     export_group.add_argument("--format", choices=['txt', 'json', 'csv'], default='txt', help="Output file format.")
+
+    # GROUP 5: Availability Check
+    check_group = parser.add_argument_group("Availability Check")
+    check_group.add_argument("--check", action="store_true", help="Check if the generated usernames are available on social platforms.")
+    check_group.add_argument("--sync", metavar="PLATFORMS", help="Comma-separated list of platforms. Only returns usernames available on ALL specified sites.")
 
     return parser
 
@@ -137,12 +143,52 @@ def main():
     results = []
     
     try:
-        # Loop count logic handled here to avoid repeated startup overhead
-        for _ in range(args.count):
+        sync_platforms = args.sync.split(",") if args.sync else []
+        
+        found_count = 0
+        attempts = 0
+        max_attempts = args.count * 50 # Prevent infinite loops
+        
+        while found_count < args.count and attempts < max_attempts:
+            attempts += 1
             base = generate_base_username(args)
             final = process_username(base, args)
-            results.append(final)
             
+            # Logic for Sync Mode
+            if sync_platforms:
+                print(f"🔄 [Attempt {attempts}] Sync-checking: {final}", end="\r")
+                checker_results = check_username_availability(final, sync_platforms)
+                
+                # Check if available on ALL requested platforms
+                is_fully_synced = all(status == "AVAILABLE" for status in checker_results.values())
+                
+                if is_fully_synced:
+                    print(f"\n✨ Found Synced Handle: {final}")
+                    for p, s in checker_results.items():
+                        print(f"  - {p:12}: ✅ AVAILABLE")
+                    results.append(final)
+                    found_count += 1
+                continue # Skip standard logic in sync mode
+                
+            # Logic for Standard or --check Mode
+            results.append(final)
+            found_count += 1
+            
+            if args.check:
+                print(f"\nChecking availability for: {final}")
+                checker_results = check_username_availability(final)
+                for platform, status in checker_results.items():
+                    if status == "AVAILABLE":
+                        display = "✅ AVAILABLE"
+                    elif status == "TAKEN":
+                        display = "❌ TAKEN"
+                    elif status == "BLOCKED/WAF":
+                        display = "🛡️  BLOCKED (BOT PROTECTION)"
+                    else:
+                        display = f"⚠️  {status}"
+                    print(f"  - {platform:12}: {display}")
+            
+        print(f"\nGeneration complete. ({attempts} attempts made)")
         save_output(results, args)
         
     except UsernameGeneratorError as e:
