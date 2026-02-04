@@ -30,6 +30,10 @@ The **Advanced Username Generator** transforms the mundane task of choosing a ha
     - `Profession`: Tailored usernames for *Developers*, *Designers*, and *Writers*.
     - `Mythology`: Names inspired by *Greek*, *Norse*, and *Egyptian* pantheons.
     - `Keywords`: Flexible combinations of your own seed words.
+- **Availability & OSINT Checker**: 
+    - **Live Verification**: Instantly check if names are free on top platforms like *GitHub*, *Reddit*, *Instagram*, *Twitch*, and more.
+    - **Smart Content Detection**: Beyond simple 404s, our tool scans page content for "Not Found" signatures.
+    - **Cross-Platform Sync**: Use `--sync` to find usernames available on *all* your chosen platforms simultaneously.
 - **Dynamic Text Modifiers**:
     - **Leet Speak**: Automatic character substitution (e.g., `a` -> `4`).
     - **Prefix/Suffix injection**: Add status words like `The`, `Master`, or `Real`.
@@ -44,8 +48,9 @@ username_generator/
 ├── username.py             # Entry point wrapper script
 ├── config.json             # External vocabulary and leet mappings
 └── username_generator/     # Core application package
-    ├── cli.py              # CLI Interface and argument parsing
+    ├── cli.py              # CLI Interface, Orchestration, and argument parsing
     ├── core.py             # Central generation logic (Factory pattern)
+    ├── checker.py          # Parallel Availability Checker (Multi-threaded)
     ├── config.py           # Config loader with LRU caching
     ├── modifiers.py        # Text transformation algorithms
     ├── exceptions.py       # Package-specific custom exceptions
@@ -93,6 +98,14 @@ python username.py --count 3 --base-word Archer
 *   **Combining Keywords with Special Characters**:
     ```powershell
     python username.py --keywords Matrix Shadow --use-special-chars
+    ```
+*   **Availability Checking (OSINT Mode)**:
+    ```powershell
+    python username.py --count 1 --retro --check
+    ```
+*   **Cross-Platform Sync (Find a name free on BOTH GitHub and Reddit)**:
+    ```powershell
+    python username.py --count 1 --base-word Maverick --sync github,reddit
     ```
 
 ### Exporting Results
