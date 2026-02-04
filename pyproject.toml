@@ -16,6 +16,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
+    "requests>=2.31.0",
 ]
 [project.scripts]
 generate-user = "username_generator.cli:main"

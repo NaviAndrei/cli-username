@@ -29,7 +29,18 @@
     "norse": ["Odin", "Thor", "Loki", "Freya", "Heimdall", "Tyr"],
     "egyptian": ["Ra", "Anubis", "Osiris", "Isis", "Horus", "Set"]
   },
-
+  "check_targets": {
+    "github": "https://github.com/{username}",
+    "youtube": "https://www.youtube.com/@{username}",
+    "instagram": "https://www.instagram.com/{username}/",
+    "tiktok": "https://www.tiktok.com/@{username}",
+    "x_twitter": "https://twitter.com/{username}",
+    "snapchat": "https://www.snapchat.com/add/{username}",
+    "reddit": "https://www.reddit.com/user/{username}",
+    "telegram": "https://t.me/{username}",
+    "threads": "https://www.threads.net/@{username}",
+    "twitch": "https://www.twitch.tv/{username}"
+  },
   "vibes": {
     "mystical": {
       "adjectives": ["Shadow", "Runic", "Astral", "Spirit", "Moon", "Sun", "Magic", "Arcane", "Void"],

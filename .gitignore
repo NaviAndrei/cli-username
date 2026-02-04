@@ -9,6 +9,11 @@ __pycache__/
 *.pyo
 *.pyd
 
+# Ignore Build and Packaging artifacts
+build/
+dist/
+*.egg-info/
+
 # Ignore system files and IDE files.
 .vscode/
 .idea/
@@ -17,3 +22,10 @@ __pycache__/
 # Ignore sensitive configuration files (if any)
 .env
 tool_features.md
+
+# Ignore potential output files from the tool
+# (Change these if you want to keep specific outputs)
+*.log
+# *.txt (optional: avoid ignoring README.txt or similar if they exist)
+# *.csv
+# *.json (CARE: config.json is needed, so we don't ignore all JSONs)
