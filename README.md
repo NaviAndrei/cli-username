@@ -3,7 +3,9 @@
 [![Python Version](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A powerful, modularized Python CLI tool designed to generate unique and memorable online identities. Built with SOLID principles and a focus on clean code, this generator offers multiple strategies and dynamic modifiers to suit any digital platform.
+> [🇷🇴 **Read this in Romanian / Citește în Română**](README_RO.md)
+
+A powerful, modularized Python CLI tool designed to generate unique and memorable online identities. Built with SOLID principles, robust architecture (Pydantic), and a focus on clean code, this generator offers multiple strategies and dynamic modifiers to suit any digital platform.
 
 ---
 
@@ -20,25 +22,34 @@ A powerful, modularized Python CLI tool designed to generate unique and memorabl
 ---
 
 ##  Overview
-The **Advanced Username Generator** transforms the mundane task of choosing a handle into a creative experience. Whether you need a persona for gaming, professional coding, or social media, this tool provides diverse algorithms and real-time text transformations to ensure your name stands out.
+The **Advanced Username Generator** transforms the mundane task of choosing a handle into a creative experience. Whether you need a persona for gaming, professional coding, or social media, this tool provides diverse algorithms, phonetic constraints (rhymes/alliteration), and real-time text transformations to ensure your name stands out.
 
 ##  Key Features
 - **Multiple Generation Strategies**:
     - `Timestamp`: Unique names based on current date and time.
     - `Retro`: Classic internet style (Adjective + Noun + Number).
-    - `Vibe`: Themed identities like *Cyber*, *Fantasy*, *Scifi*, or *Nature*.
-    - `Profession`: Tailored usernames for *Developers*, *Designers*, and *Writers*.
-    - `Mythology`: Names inspired by *Greek*, *Norse*, and *Egyptian* pantheons.
+    - `Vibe` & `Profession`: Themed identities like *Cyber*, *Fantasy* or *Developer*. **Can be combined!**
+    - `Mythology`: Names inspired by *Greek*, *Norse*, *Celtic*, and *Japanese* pantheons.
     - `Keywords`: Flexible combinations of your own seed words.
+
+- **Creative Constraints & Logic (New in v2.2)**:
+    - **Phonetic Rhymes**: Uses CMU Dict to find words that *actually* rhyme (e.g., `--rhyme`).
+    - **Alliteration**: Forces adjectives and nouns to start with the same letter (`--alliteration`).
+    - **Structure Control**: Filter patterns to use `--only-nouns` or `--only-adjectives`.
+    - **Custom Separator**: Replace standard underscores with your own style (e.g., `--separator "."`).
+    - **Interactive Mode**: Regenerate results on the fly without restarting the script (`--interactive`).
+    - **Infinite Loop Protection**: Smart retries that prevent hanging when constraints are too strict.
+
 - **Availability & OSINT Checker**: 
-    - **Live Verification**: Instantly check if names are free on top platforms like *GitHub*, *Reddit*, *Instagram*, *Twitch*, and more.
-    - **Smart Content Detection**: Beyond simple 404s, our tool scans page content for "Not Found" signatures.
-    - **Cross-Platform Sync**: Use `--sync` to find usernames available on *all* your chosen platforms simultaneously.
+    - **Live Verification**: Instantly check if names are free on top platforms like *GitHub*, *Reddit*, *Instagram*.
+    - **Smart Content Detection**: Scans page content for "Not Found" signatures.
+    - **Cross-Platform Sync**: Use `--sync` to find usernames available on *all* chosen platforms.
+
 - **Dynamic Text Modifiers**:
-    - **Leet Speak**: Automatic character substitution (e.g., `a` -> `4`).
-    - **Prefix/Suffix injection**: Add status words like `The`, `Master`, or `Real`.
+    - **Leet Speak**: Randomized character substitution (e.g., `a` -> `4` or `@`).
+    - **Prefix/Suffix injection**: Add status words like `The`, `Master`.
     - **Special Character Insertion**: Add `_`, `.`, or `-` for a professional look.
-    - **Length Enforcement**: Perfect fit for any platform's constraints (truncation or padding).
+    - **Length Enforcement**: Perfect fit for platform constraints.
 
 ##  System Architecture
 The project follows a modular structure to ensure maintainability and testability:
@@ -49,12 +60,12 @@ username_generator/
 ├── config.json             # External vocabulary and leet mappings
 └── username_generator/     # Core application package
     ├── cli.py              # CLI Interface, Orchestration, and argument parsing
-    ├── core.py             # Central generation logic (Factory pattern)
+    ├── core.py             # Central logic with Dependency Injection (GenerationContext)
     ├── checker.py          # Parallel Availability Checker (Multi-threaded)
-    ├── config.py           # Config loader with LRU caching
-    ├── modifiers.py        # Text transformation algorithms
-    ├── exceptions.py       # Package-specific custom exceptions
-    └── __init__.py         # Package identification and versioning
+    ├── config.py           # Configuration Manager (Pydantic-based validation & caching)
+    ├── modifiers.py        # Text algorithms & Phonetic functions
+    ├── exceptions.py       # Custom exceptions
+    └── __init__.py         # Package identification
 ```
 
 ##  Installation & Setup
@@ -76,7 +87,14 @@ username_generator/
    .\venv\Scripts\activate
    ```
 
-3. **Verify Configuration**:
+3. **Install Dependencies**:
+   ```bash
+   pip install pydantic pydantic-settings pronouncing requests
+   # OR
+   pip install .
+   ```
+
+4. **Verify Configuration**:
    Ensure `config.json` is located in the project root directory.
 
 ##  Usage Guide
@@ -86,26 +104,26 @@ username_generator/
 python username.py --count 3 --base-word Archer
 ```
 
-### Advanced Examples
-*   **Cyberpunk style with Leet Speak**:
+### Advanced Examples (v2.2+)
+*   **Rhyming & Alliteration**:
     ```powershell
-    python username.py --count 5 --vibe cyber --use-leet
+    # Generates names like "DarkShark" or "CyberCity"
+    python username.py --vibe cyber --rhyme --count 5
+    python username.py --profession gamer --alliteration
     ```
-*   **Mythological Names (Random Pantheon)**:
+*   **Custom Structure & Separator**:
     ```powershell
-    python username.py --mythology
+    # Generates "Dev.Code.99" or "Pro.Gamer"
+    python username.py --profession developer --separator "." --only-nouns
     ```
-*   **Combining Keywords with Special Characters**:
+*   **Interactive Mode**:
     ```powershell
-    python username.py --keywords Matrix Shadow --use-special-chars
+    # Allows regenerating results without exiting
+    python username.py --vibe fantasy --interactive
     ```
-*   **Availability Checking (OSINT Mode)**:
+*   **Combined Vibe & Profession**:
     ```powershell
-    python username.py --count 1 --retro --check
-    ```
-*   **Cross-Platform Sync (Find a name free on BOTH GitHub and Reddit)**:
-    ```powershell
-    python username.py --count 1 --base-word Maverick --sync github,reddit
+    python username.py --vibe tech --profession designer --use-leet
     ```
 
 ### Exporting Results
@@ -118,9 +136,9 @@ python username.py --count 10 --vibe fantasy --output handles.json --format json
 
 ### Core Modules
 - **`cli.py`**: Leverages `argparse` to provide a robust user interface. Features organized help groups and input validation.
-- **`core.py`**: Implements specialized generators that pull data from the global config and apply dynamic templates.
-- **`modifiers.py`**: Pure functions for atomic text operations (e.g., `strip_numbers`, `apply_special_chars`).
-- **`config.py`**: Built-in efficient config distribution using `functools.lru_cache` to minimize disk access.
+- **`core.py`**: Uses **Dependency Injection** via `GenerationContext` to pass constraints. Implements infinite loop protection.
+- **`modifiers.py`**: Contains `pronouncing` integration for rhymes and helper functions for string manipulation.
+- **`config.py`**: Uses **Pydantic** for strict schema validation and environment variable overrides (`UG_PATTERNS` etc.).
 
 ---
 
@@ -130,10 +148,10 @@ The `config.json` file serves as the application's "brain". It allows you to cus
 ##  Contributing
 Contributions are welcome! If you'd like to improve the Advanced Username Generator, please follow these steps:
 
-1. **Fork the Project** (click the Fork button at the top right of this page).
-2. **Create your Feature Branch** (`git checkout -b feature/AmazingFeature`).
-3. **Commit your Changes** (`git commit -m 'Add some AmazingFeature'`).
-4. **Push to the Branch** (`git push origin feature/AmazingFeature`).
+1. **Fork the Project**.
+2. **Create your Feature Branch**.
+3. **Commit your Changes**.
+4. **Push to the Branch**.
 5. **Open a Pull Request**.
 
 Please ensure your code follows PEP 8 standards and includes appropriate docstrings.

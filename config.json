@@ -1,7 +1,16 @@
 {
   "leet_map": {
-    "a": "4", "e": "3", "g": "6", "i": "1", "o": "0", "s": "5", "t": "7",
-    "A": "4", "E": "3", "G": "6", "I": "1", "O": "0", "S": "5", "T": "7"
+    "a": ["4", "@", "A"], "b": ["8", "6"], "c": ["k", "C", "("], "d": ["d", "D"], "e": ["3", "E"],
+    "f": ["ph", "F"], "g": ["9", "6", "G"], "h": ["h", "H", "#"], "i": ["1", "!", "I"], "j": ["j", "J"],
+    "k": ["k", "x", "K"], "l": ["1", "L", "l"], "m": ["m", "M"], "n": ["n", "N"], "o": ["0", "O"],
+    "p": ["p", "P"], "q": ["q", "9", "Q"], "r": ["r", "R"], "s": ["5", "z", "S", "$"], "t": ["7", "T", "+"],
+    "u": ["u", "v", "U"], "v": ["v", "u", "V"], "w": ["w", "vv", "W"], "x": ["x", "X"], "y": ["y", "j", "Y"], "z": ["2", "z", "Z"],
+
+    "A": ["4", "@", "A"], "B": ["8", "6"], "C": ["k", "C", "("], "D": ["d", "D"], "E": ["3", "E"],
+    "F": ["ph", "F"], "G": ["9", "6", "G"], "H": ["h", "H", "#"], "I": ["1", "!", "I"], "J": ["j", "J"],
+    "K": ["k", "x", "K"], "L": ["1", "L", "l"], "M": ["m", "M"], "N": ["n", "N"], "O": ["0", "O"],
+    "P": ["p", "P"], "Q": ["q", "9", "Q"], "R": ["r", "R"], "S": ["5", "z", "S", "$"], "T": ["7", "T", "+"],
+    "U": ["u", "v", "U"], "V": ["v", "u", "V"], "W": ["w", "vv", "W"], "X": ["x", "X"], "Y": ["y", "j", "Y"], "Z": ["2", "z", "Z"]
   },
   
   "patterns": [
@@ -10,24 +19,40 @@
     "{adjective}_{noun}",
     "{noun}_{adjective}_{number}",
     "The{noun}",
-    "Iam{noun}"
+    "Iam{noun}",
+    "{adjective}{adjective}{number}",
+    "{noun}The{adjective}",
+    "x{adjective}{noun}x",
+    "{adjective}.{noun}",
+    "{noun}-{adjective}-{number}",
+    "Not{noun}{number}",
+    "Real{adjective}{noun}",
+    "{adjective}{noun}Official",
+    "Just{noun}{number}",
+    "{noun}_{noun}",
+    "{adjective}_{adjective}",
+    "The{adjective}One",
+    "{adjective}X{noun}",
+    "{noun}{noun}{number}"
   ],
 
   "separators": ["_", ".", "-", "x", "X"],
 
-  "prefixes": ["Cyber", "Master", "The", "Alpha", "Dark", "Ghost", "Super", "Ultra", "Mega"],
+  "prefixes": ["Cyber", "Master", "The", "Alpha", "Dark", "Ghost", "Super", "Ultra", "Mega", "Neo", "Prime", "Sir", "Lord", "xX", "Real", "Chief", "Epic", "Grand"],
   
-  "suffixes": ["Ninja", "Pro", "X", "Tech", "Hunter", "Lord", "Bot", "AI", "99", "007"],
+  "suffixes": ["Ninja", "Pro", "X", "Tech", "Hunter", "Lord", "Bot", "AI", "99", "007", "Xx", "HD", "TV", "YT", "King", "Boss", "Jr", "Sr", "Official", "Live"],
   
   "retro_words": {
-    "adjectives": ["Cyber", "Mega", "Extreme", "Digital", "Pixel", "Turbo", "Retro", "Vintage", "8-bit", "16-bit", "Arcade", "Atomic", "Sonic", "Ultimate"],
-    "nouns": ["Warrior", "Knight", "Lord", "Master", "Dude", "Gamer", "Overlord", "Legend", "Nexus", "Titan"]
+    "adjectives": ["Cyber", "Mega", "Extreme", "Digital", "Pixel", "Turbo", "Retro", "Vintage", "8-bit", "16-bit", "Arcade", "Atomic", "Sonic", "Ultimate", "Neon", "Radical", "Electric", "Hyper", "Blazing", "Nitro", "Wicked", "Gnarly"],
+    "nouns": ["Warrior", "Knight", "Lord", "Master", "Dude", "Gamer", "Overlord", "Legend", "Nexus", "Titan", "Champion", "Phantom", "Ranger", "Hero", "Maverick", "Outlaw", "Rebel", "Destroyer"]
   },
   
   "mythology": {
-    "greek": ["Zeus", "Hera", "Apollo", "Ares", "Athena", "Hades"],
-    "norse": ["Odin", "Thor", "Loki", "Freya", "Heimdall", "Tyr"],
-    "egyptian": ["Ra", "Anubis", "Osiris", "Isis", "Horus", "Set"]
+    "greek": ["Zeus", "Hera", "Apollo", "Ares", "Athena", "Hades", "Poseidon", "Artemis", "Hermes", "Demeter", "Hephaestus", "Dionysus"],
+    "norse": ["Odin", "Thor", "Loki", "Freya", "Heimdall", "Tyr", "Baldur", "Fenrir", "Skadi", "Bragi", "Vidar", "Njord"],
+    "egyptian": ["Ra", "Anubis", "Osiris", "Isis", "Horus", "Set", "Bastet", "Thoth", "Sobek", "Sekhmet", "Khnum", "Nephthys"],
+    "japanese": ["Amaterasu", "Susanoo", "Tsukuyomi", "Raijin", "Fujin", "Inari", "Izanagi", "Izanami", "Bishamonten"],
+    "celtic": ["Morrigan", "Brigid", "Lugh", "Dagda", "Cernunnos", "Danu", "Epona", "Taranis", "Belenus"]
   },
   "check_targets": {
     "github": "https://github.com/{username}",
@@ -43,43 +68,51 @@
   },
   "vibes": {
     "mystical": {
-      "adjectives": ["Shadow", "Runic", "Astral", "Spirit", "Moon", "Sun", "Magic", "Arcane", "Void"],
-      "nouns": ["Walker", "Seer", "Oracle", "Mage", "Sorcerer", "Whisper", "Wizard", "Witch", "Specter"]
+      "adjectives": ["Shadow", "Runic", "Astral", "Spirit", "Moon", "Sun", "Magic", "Arcane", "Void", "Crystal", "Lunar", "Mystic", "Ethereal", "Celestial", "Twilight"],
+      "nouns": ["Walker", "Seer", "Oracle", "Mage", "Sorcerer", "Whisper", "Wizard", "Witch", "Specter", "Druid", "Sage", "Shaman", "Prophet", "Enchanter", "Warden"]
     },
     "tech": {
-      "adjectives": ["Data", "Cypher", "Kernel", "Logic", "Pixel", "Voltage", "Code", "Binary", "Quantum"],
-      "nouns": ["Runner", "Surfer", "Byte", "Flow", "Mind", "Jockey", "Hacker", "Coder", "Bot"]
+      "adjectives": ["Data", "Cypher", "Kernel", "Logic", "Pixel", "Voltage", "Code", "Binary", "Quantum", "Neural", "Cloud", "Stack", "Crypto", "Algo", "Wire"],
+      "nouns": ["Runner", "Surfer", "Byte", "Flow", "Mind", "Jockey", "Hacker", "Coder", "Bot", "Node", "Matrix", "Nexus", "Circuit", "Drone", "Frame"]
     },
     "warrior": {
-      "adjectives": ["Axe", "Shield", "Iron", "Storm", "Blood", "Fury", "Steel", "Battle", "War"],
-      "nouns": ["Blade", "Heart", "Breaker", "Guard", "Fist", "Slayer", "Knight", "Paladin", "Viking"]
+      "adjectives": ["Axe", "Shield", "Iron", "Storm", "Blood", "Fury", "Steel", "Battle", "War", "Thunder", "Flame", "Frost", "Rage", "Savage", "Wrath"],
+      "nouns": ["Blade", "Heart", "Breaker", "Guard", "Fist", "Slayer", "Knight", "Paladin", "Viking", "Titan", "Sentinel", "Warden", "Gladiator", "Berserker", "Conqueror"]
     },
     "fantasy": {
-      "adjectives": ["Dragon", "Elven", "Dark", "Holy", "Ancient", "Elf", "Dwarven", "Orcish"],
-      "nouns": ["Slayer", "Rider", "Mage", "Blade", "Shield", "Wizard", "King", "Queen"]
+      "adjectives": ["Dragon", "Elven", "Dark", "Holy", "Ancient", "Elf", "Dwarven", "Orcish", "Fae", "Mythic", "Cursed", "Golden", "Shadow", "Enchanted"],
+      "nouns": ["Slayer", "Rider", "Mage", "Blade", "Shield", "Wizard", "King", "Queen", "Ranger", "Hunter", "Guardian", "Champion", "Sorcerer", "Paladin"]
     },
     "scifi": {
-      "adjectives": ["Void", "Quantum", "Neon", "Cyber", "Stellar", "Space", "Alien", "Galactic"],
-      "nouns": ["Pilot", "Drifter", "Punk", "Droid", "Core", "Robot", "Marine", "Invader"]
+      "adjectives": ["Void", "Quantum", "Neon", "Cyber", "Stellar", "Space", "Alien", "Galactic", "Orbital", "Plasma", "Nova", "Chrono", "Hyper", "Vector"],
+      "nouns": ["Pilot", "Drifter", "Punk", "Droid", "Core", "Robot", "Marine", "Invader", "Commander", "Explorer", "Trooper", "Captain", "Reaper", "Ranger"]
     },
     "nature": {
-      "adjectives": ["Wild", "Green", "Storm", "River", "Deep", "Forest", "Mountain", "Ocean"],
-      "nouns": ["Wolf", "Bear", "Root", "Peak", "Leaf", "Tree", "Eagle", "Shark"]
+      "adjectives": ["Wild", "Green", "Storm", "River", "Deep", "Forest", "Mountain", "Ocean", "Arctic", "Ember", "Thorn", "Coral", "Solar", "Frost"],
+      "nouns": ["Wolf", "Bear", "Root", "Peak", "Leaf", "Tree", "Eagle", "Shark", "Fox", "Hawk", "Raven", "Lynx", "Viper", "Falcon"]
     }
   },
   
   "professions": {
     "developer": {
-      "adjectives": ["Agile", "Async", "Bug", "Code", "Dev", "Git", "FullStack"],
-      "nouns": ["Slinger", "Wizard", "Warrior", "Junkie", "Guru", "Ninja", "Engineer"]
+      "adjectives": ["Agile", "Async", "Bug", "Code", "Dev", "Git", "FullStack", "Backend", "Cloud", "Script", "Debug", "Open", "Root", "Sudo"],
+      "nouns": ["Slinger", "Wizard", "Warrior", "Junkie", "Guru", "Ninja", "Engineer", "Architect", "Builder", "Master", "Crafter", "Hacker", "Monkey"]
     },
     "designer": {
-      "adjectives": ["Creative", "Pixel", "Vector", "Font", "UI", "UX", "Artistic"],
-      "nouns": ["Pusher", "Artist", "Maven", "Pro", "Guru", "Sensei", "Creator"]
+      "adjectives": ["Creative", "Pixel", "Vector", "Font", "UI", "UX", "Artistic", "Visual", "Brand", "Color", "Layout", "Sketch", "Gradient"],
+      "nouns": ["Pusher", "Artist", "Maven", "Pro", "Guru", "Sensei", "Creator", "Maker", "Visionary", "Curator", "Stylist", "Craftsman", "Dreamer"]
     },
     "writer": {
-      "adjectives": ["Prose", "Story", "Word", "Ink", "Scroll", "Tome", "Plot"],
-      "nouns": ["Smith", "Weaver", "Crafter", "Bard", "Scribe", "Poet", "Author"]
+      "adjectives": ["Prose", "Story", "Word", "Ink", "Scroll", "Tome", "Plot", "Verse", "Draft", "Quill", "Script", "Page", "Chapter"],
+      "nouns": ["Smith", "Weaver", "Crafter", "Bard", "Scribe", "Poet", "Author", "Narrator", "Sage", "Muse", "Nomad", "Ghost", "Teller"]
+    },
+    "music": {
+      "adjectives": ["Bass", "Beat", "Synth", "Vinyl", "Chord", "Loop", "Echo", "Sonic", "Rhythm", "Melody", "Drop", "Tempo", "Groove"],
+      "nouns": ["Master", "Maker", "Rider", "Soul", "Wave", "Pulse", "Mixer", "Producer", "Maestro", "Genius", "Spinner", "DJ", "Virtuoso"]
+    },
+    "gamer": {
+      "adjectives": ["Elite", "Rage", "Clutch", "Rush", "Snipe", "Combo", "Crit", "Loot", "Boss", "Frag", "Arena", "Spawn", "GG"],
+      "nouns": ["Shot", "King", "Lord", "Legend", "Ace", "Champion", "Hunter", "Slayer", "Striker", "Phantom", "Raider", "Assassin", "Warlord"]
     }
   },
   
