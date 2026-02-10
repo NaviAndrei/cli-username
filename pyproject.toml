@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "cli-username-generator"
-version = "0.1.0"
+version = "2.2.1"
 authors = [
   { name="Ivan Andrei", email="andrei.ivan2025@s.utm.ro" },
 ]
@@ -17,6 +17,9 @@ classifiers = [
 ]
 dependencies = [
     "requests>=2.31.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "pronouncing>=0.2.0",
 ]
 [project.scripts]
 generate-user = "username_generator.cli:main"

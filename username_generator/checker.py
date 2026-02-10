@@ -1,5 +1,5 @@
 import requests
-from typing import Dict, List
+from typing import Dict, List, Optional, Tuple
 from concurrent.futures import ThreadPoolExecutor
 from .config import get_config_value
 
@@ -15,7 +15,7 @@ NOT_FOUND_KEYWORDS = [
     "nobody on reddit goes by that name", "user not found"
 ]
 
-def check_individual_platform(platform: str, url_template: str, username: str, session: requests.Session) -> tuple:
+def check_individual_platform(platform: str, url_template: str, username: str, session: requests.Session) -> Tuple[str, str]:
     """Checks a single platform for username availability."""
     url = url_template.format(username=username)
     try:
@@ -37,7 +37,7 @@ def check_individual_platform(platform: str, url_template: str, username: str, s
     except requests.RequestException:
         return platform, "TIMEOUT/FAIL"
 
-def check_username_availability(username: str, platforms: List[str] = None) -> Dict[str, str]:
+def check_username_availability(username: str, platforms: Optional[List[str]] = None) -> Dict[str, str]:
     """Checks if a username is available across multiple platforms using multi-threading.
     
     Args:
