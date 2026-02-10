@@ -152,10 +152,7 @@ Examples:
     check_group.add_argument("--check", action="store_true", help="Check if the generated usernames are available on social platforms.")
     check_group.add_argument("--sync", metavar="PLATFORMS", help="Comma-separated list of platforms. Only returns usernames available on ALL specified sites.")
 
-    # GROUP 5: Availability Check
-    check_group = parser.add_argument_group("Availability Check")
-    check_group.add_argument("--check", action="store_true", help="Check if the generated usernames are available on social platforms.")
-    check_group.add_argument("--sync", metavar="PLATFORMS", help="Comma-separated list of platforms. Only returns usernames available on ALL specified sites.")
+
 
     return parser
 
