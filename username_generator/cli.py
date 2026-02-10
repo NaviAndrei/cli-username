@@ -17,8 +17,7 @@ from .modifiers import (
     apply_alt_caps
 )
 from .checker import check_username_availability
-from .checker import check_username_availability
-from .exceptions import UsernameGeneratorError
+from .exceptions import UsernameGeneratorError, ValidationError
 
 def setup_parser() -> argparse.ArgumentParser:
     """Configures an organized CLI parser with logical groups.
