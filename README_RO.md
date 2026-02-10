@@ -69,10 +69,13 @@ username_generator/
 
 ### Cerințe
 - Python 3.10+
+- Python 3.10+
 
 ### Pași pentru Setup
 1. **Clonează repository-ul**:
    ```bash
+   git clone https://github.com/NaviAndrei/cli-username.git
+   cd cli-username
    git clone https://github.com/NaviAndrei/cli-username.git
    cd cli-username
    ```

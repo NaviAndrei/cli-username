@@ -17,6 +17,7 @@ from .modifiers import (
     apply_alt_caps
 )
 from .checker import check_username_availability
+from .checker import check_username_availability
 from .exceptions import UsernameGeneratorError
 
 def setup_parser() -> argparse.ArgumentParser:
@@ -146,6 +147,11 @@ Examples:
     export_group = parser.add_argument_group("Data Export")
     export_group.add_argument("--output", metavar="FILE", help="Path to the output file.")
     export_group.add_argument("--format", choices=['txt', 'json', 'csv'], default='txt', help="Output file format.")
+
+    # GROUP 5: Availability Check
+    check_group = parser.add_argument_group("Availability Check")
+    check_group.add_argument("--check", action="store_true", help="Check if the generated usernames are available on social platforms.")
+    check_group.add_argument("--sync", metavar="PLATFORMS", help="Comma-separated list of platforms. Only returns usernames available on ALL specified sites.")
 
     # GROUP 5: Availability Check
     check_group = parser.add_argument_group("Availability Check")

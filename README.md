@@ -72,10 +72,13 @@ username_generator/
 
 ### Prerequisites
 - Python 3.10 or higher
+- Python 3.10 or higher
 
 ### Step-by-Step Setup
 1. **Clone the repository**:
    ```bash
+   git clone https://github.com/NaviAndrei/cli-username.git
+   cd cli-username
    git clone https://github.com/NaviAndrei/cli-username.git
    cd cli-username
    ```
@@ -104,26 +107,18 @@ username_generator/
 python username.py --count 3 --base-word Archer
 ```
 
-### Advanced Examples (v2.2+)
-*   **Rhyming & Alliteration**:
+### Advanced Examples
+*   **Cyberpunk style with Leet Speak**:
     ```powershell
-    # Generates names like "DarkShark" or "CyberCity"
-    python username.py --vibe cyber --rhyme --count 5
-    python username.py --profession gamer --alliteration
+    python username.py --count 5 --vibe cyber --use-leet
     ```
-*   **Custom Structure & Separator**:
+*   **Mythological Names (Random Pantheon)**:
     ```powershell
-    # Generates "Dev.Code.99" or "Pro.Gamer"
-    python username.py --profession developer --separator "." --only-nouns
+    python username.py --mythology
     ```
-*   **Interactive Mode**:
+*   **Combining Keywords with Special Characters**:
     ```powershell
-    # Allows regenerating results without exiting
-    python username.py --vibe fantasy --interactive
-    ```
-*   **Combined Vibe & Profession**:
-    ```powershell
-    python username.py --vibe tech --profession designer --use-leet
+    python username.py --keywords Matrix Shadow --use-special-chars
     ```
 
 ### Exporting Results

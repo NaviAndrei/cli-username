@@ -140,7 +140,6 @@ def get_config_value(key: str, default: Any = None) -> Any:
     return val if val is not None else default
 
 # Direct access to the Pydantic model
-# Direct access to the Pydantic model
 def get_config_model() -> AppConfig:
     """Returns the full Pydantic configuration model instance."""
     return _manager.config
