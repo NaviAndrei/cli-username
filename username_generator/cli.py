@@ -152,7 +152,14 @@ Examples:
     check_group.add_argument("--check", action="store_true", help="Check if the generated usernames are available on social platforms.")
     check_group.add_argument("--sync", metavar="PLATFORMS", help="Comma-separated list of platforms. Only returns usernames available on ALL specified sites.")
 
+    # GROUP 6: Creative Constraints
+    constraint_group = parser.add_argument_group("Creative Constraints")
+    constraint_group.add_argument("--alliteration", action="store_true", help="Force alliterative pairs (same starting letter, e.g., 'DarkDragon').")
+    constraint_group.add_argument("--rhyme", action="store_true", help="Force rhyming pairs (e.g., 'CoolPool').")
+    constraint_group.add_argument("--separator", metavar="SEP", default=None, help="Custom separator between words (e.g., '.', '-'). Default: underscore.")
 
+    # GROUP 7: Interactive Mode
+    parser.add_argument("--interactive", action="store_true", help="Enable interactive mode: regenerate or select usernames on the fly.")
 
     return parser
 
